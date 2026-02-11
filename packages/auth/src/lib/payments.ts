@@ -1,4 +1,4 @@
-import { env } from "@my-better-t-app/env/server";
+import { env } from "@subtrack/env/server";
 import { Polar } from "@polar-sh/sdk";
 
 export const polarClient = new Polar({

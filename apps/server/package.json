@@ -12,9 +12,9 @@
   "dependencies": {
     "@ai-sdk/devtools": "^0.0.2",
     "@ai-sdk/google": "^3.0.1",
-    "@my-better-t-app/auth": "workspace:*",
-    "@my-better-t-app/db": "workspace:*",
-    "@my-better-t-app/env": "workspace:*",
+    "@subtrack/auth": "workspace:*",
+    "@subtrack/db": "workspace:*",
+    "@subtrack/env": "workspace:*",
     "ai": "catalog:",
     "better-auth": "catalog:",
     "cors": "^2.8.5",
@@ -23,7 +23,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@my-better-t-app/config": "workspace:*",
+    "@subtrack/config": "workspace:*",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/node": "^22.13.14",

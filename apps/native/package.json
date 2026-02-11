@@ -17,7 +17,7 @@
     "@expo/metro-runtime": "~6.1.2",
     "@expo/vector-icons": "^15.0.3",
     "@gorhom/bottom-sheet": "^5",
-    "@my-better-t-app/env": "workspace:*",
+    "@subtrack/env": "workspace:*",
     "@react-navigation/drawer": "^7.3.9",
     "@react-navigation/elements": "^2.8.1",
     "@stardazed/streams-text-encoding": "^1.0.2",
@@ -53,7 +53,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@my-better-t-app/config": "workspace:*",
+    "@subtrack/config": "workspace:*",
     "@types/node": "^24.10.0",
     "@types/react": "~19.1.0",
     "typescript": "catalog:"

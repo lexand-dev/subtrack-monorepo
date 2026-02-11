@@ -1,5 +1,5 @@
 {
-  "name": "my-better-t-app",
+  "name": "subtrack",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -13,25 +13,25 @@
     "dev:native": "turbo -F native dev",
     "dev:web": "turbo -F web dev",
     "dev:server": "turbo -F server dev",
-    "db:push": "turbo -F @my-better-t-app/db db:push",
-    "db:studio": "turbo -F @my-better-t-app/db db:studio",
-    "db:generate": "turbo -F @my-better-t-app/db db:generate",
-    "db:migrate": "turbo -F @my-better-t-app/db db:migrate",
-    "db:start": "turbo -F @my-better-t-app/db db:start",
-    "db:watch": "turbo -F @my-better-t-app/db db:watch",
-    "db:stop": "turbo -F @my-better-t-app/db db:stop",
-    "db:down": "turbo -F @my-better-t-app/db db:down"
+    "db:push": "turbo -F @subtrack/db db:push",
+    "db:studio": "turbo -F @subtrack/db db:studio",
+    "db:generate": "turbo -F @subtrack/db db:generate",
+    "db:migrate": "turbo -F @subtrack/db db:migrate",
+    "db:start": "turbo -F @subtrack/db db:start",
+    "db:watch": "turbo -F @subtrack/db db:watch",
+    "db:stop": "turbo -F @subtrack/db db:stop",
+    "db:down": "turbo -F @subtrack/db db:down"
   },
   "dependencies": {
-    "@my-better-t-app/env": "workspace:*",
+    "@subtrack/env": "workspace:*",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@my-better-t-app/config": "workspace:*",
+    "@subtrack/config": "workspace:*",
     "@types/node": "^22.13.14",
     "turbo": "^2.6.3",
     "typescript": "catalog:"
   },
-  "packageManager": "pnpm@10.14.0"
+  "packageManager": "pnpm@10.29.3"
 }

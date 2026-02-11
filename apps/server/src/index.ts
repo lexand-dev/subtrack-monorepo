@@ -1,7 +1,7 @@
 import { devToolsMiddleware } from "@ai-sdk/devtools";
 import { google } from "@ai-sdk/google";
-import { auth } from "@my-better-t-app/auth";
-import { env } from "@my-better-t-app/env/server";
+import { auth } from "@subtrack/auth";
+import { env } from "@subtrack/env/server";
 import { streamText, type UIMessage, convertToModelMessages, wrapLanguageModel } from "ai";
 import { toNodeHandler } from "better-auth/node";
 import cors from "cors";
