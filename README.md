@@ -1,4 +1,4 @@
-# my-better-t-app
+# subtrack
 
 This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Express, and more.
 
@@ -51,7 +51,7 @@ The API is running at [http://localhost:3000](http://localhost:3000).
 ## Project Structure
 
 ```
-my-better-t-app/
+subtrack/
 ├── apps/
 │   ├── web/         # Frontend application (Next.js)
 │   ├── native/      # Mobile application (React Native, Expo)
