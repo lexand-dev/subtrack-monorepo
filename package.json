@@ -20,7 +20,8 @@
     "db:start": "turbo -F @subtrack/db db:start",
     "db:watch": "turbo -F @subtrack/db db:watch",
     "db:stop": "turbo -F @subtrack/db db:stop",
-    "db:down": "turbo -F @subtrack/db db:down"
+    "db:down": "turbo -F @subtrack/db db:down",
+    "db:seed": "turbo -F @subtrack/db db:seed"
   },
   "dependencies": {
     "@subtrack/env": "workspace:*",

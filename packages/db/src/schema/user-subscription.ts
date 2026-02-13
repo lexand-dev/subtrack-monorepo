@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import * as t from "drizzle-orm/pg-core";
 
 import { user } from "./auth";
@@ -39,3 +40,35 @@ export const userSubscriptions = t.pgTable("user_subscriptions", {
   createdAt: t.timestamp("created_at").defaultNow().notNull(),
   updatedAt: t.timestamp("updated_at").defaultNow().notNull(),
 });
+
+export const usersRelations = relations(user, ({ many }) => ({
+  subscriptions: many(userSubscriptions),
+}));
+
+export const userSubscriptionsRelations = relations(userSubscriptions, ({ one }) => ({
+  user: one(user, {
+    fields: [userSubscriptions.userId],
+    references: [user.id],
+  }),
+  provider: one(serviceProviders, {
+    fields: [userSubscriptions.providerId],
+    references: [serviceProviders.id],
+  }),
+  plan: one(subscriptionPlans, {
+    fields: [userSubscriptions.planId],
+    references: [subscriptionPlans.id],
+  }),
+}));
+
+export const serviceProvidersRelations = relations(serviceProviders, ({ many }) => ({
+  plans: many(subscriptionPlans),
+  subscriptions: many(userSubscriptions),
+}));
+
+export const subscriptionPlansRelations = relations(subscriptionPlans, ({ one, many }) => ({
+  provider: one(serviceProviders, {
+    fields: [subscriptionPlans.providerId],
+    references: [serviceProviders.id],
+  }),
+  subscriptions: many(userSubscriptions),
+}));
