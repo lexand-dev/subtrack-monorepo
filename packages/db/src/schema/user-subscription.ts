@@ -1,47 +1,41 @@
-import { user } from "./auth";
 import * as t from "drizzle-orm/pg-core";
 
+import { user } from "./auth";
 import { serviceProviders } from "./service-providers";
 import { subscriptionPlans } from "./subscription-plans";
 
-// User subscriptions (active and historical)
 export const userSubscriptions = t.pgTable("user_subscriptions", {
   id: t.uuid("subscription_id").primaryKey().defaultRandom(),
-  userId: t
-    .text("user_id")
+  userId: t.text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
-  providerId: t
-    .uuid("provider_id")
-    .notNull()
-    .references(() => serviceProviders.id, { onDelete: "restrict" }),
-  planId: t
-    .uuid("plan_id")
-    .notNull()
+  providerId: t.uuid("provider_id")
+    .references(() => serviceProviders.id, { onDelete: "set null" }),
+  planId: t.uuid("plan_id")
     .references(() => subscriptionPlans.id, { onDelete: "set null" }),
 
-  // Billing information
-  billingCycle: t.varchar("billing_cycle", { length: 20 }).notNull(), // 'monthly', 'yearly', 'weekly'
-  firstPayment: t.date("first_payment_date").notNull(),
-  nextBilling: t.date("next_billing_date").notNull(),
+  name: t.varchar("name", { length: 255 }).notNull(),
+  price: t.numeric('price', { precision: 10, scale: 2 }),
+  currency: t.varchar('currency', { length: 3 }).notNull().default('USD'),
 
-  // Subscription status
-  isActive: t.boolean("is_active").default(true), // false if cancelled or expired
-  autoRenew: t.boolean("auto_renew").default(true), // true if subscription will auto-renew at end of billing cycle
+  billingCycle: t.varchar("billing_cycle", { length: 20 }).notNull(),
 
-  // Payment method
-  paymentMethod: t.varchar("payment_method", { length: 50 }),
+  firstPaymentDate: t.date("first_payment_date").notNull(),
+  nextBillingDate: t.date("next_billing_date").notNull(),
 
-  // Dates Tracking
-  startDate: t.date("start_date").notNull(),
-  endDate: t.date("end_date"), // NULL if ongoing
-  cancelledAt: t.timestamp("cancelled_at", { withTimezone: true }),
+  status: t.varchar("status", { length: 20 }).default('ACTIVE').notNull(),
+  autoRenew: t.boolean("auto_renew").default(true),
 
-  // Metadata
+  paymentMethod: t.varchar("payment_method", { length: 50 }), // 'credit_card', 'paypal'
+
+  startDate: t.date('start_date').notNull(),
+  endDate: t.date("end_date"), // NULL si sigue activa
+  cancelledAt: t.timestamp('cancelled_at', { withTimezone: true }),
+
   notes: t.text("notes"),
   reminderEnabled: t.boolean("reminder_enabled").default(true),
-  reminderDaysBefore: t.integer("reminder_days_before").default(3),
+  reminderDaysBefore: t.integer("reminder_days_before").default(2),
 
-  createdAt: t.timestamp("created_at").defaultNow(),
-  updatedAt: t.timestamp("updated_at").defaultNow(),
+  createdAt: t.timestamp("created_at").defaultNow().notNull(),
+  updatedAt: t.timestamp("updated_at").defaultNow().notNull(),
 });
