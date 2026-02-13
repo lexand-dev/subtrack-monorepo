@@ -8,7 +8,7 @@ import { subscriptionPlans } from "./subscription-plans";
 export const userSubscriptions = t.pgTable("user_subscriptions", {
   id: t.uuid("subscription_id").primaryKey().defaultRandom(),
   userId: t
-    .uuid("user_id")
+    .text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
   providerId: t
