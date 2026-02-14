@@ -27,6 +27,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@subtrack/auth": "workspace:*",
     "@subtrack/db": "workspace:*",
+    "@subtrack/env": "workspace:*",
     "@thallesp/nestjs-better-auth": "^2.4.0",
     "ai": "catalog:",
     "better-auth": "catalog:",

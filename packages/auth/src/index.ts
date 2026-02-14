@@ -40,8 +40,8 @@ export const auth = betterAuth({
         checkout({
           products: [
             {
-              productId: "your-product-id",
-              slug: "pro",
+              productId: "298453e9-c9df-4984-9628-719dbfb6a49e",
+              slug: "Subtrack",
             },
           ],
           successUrl: env.POLAR_SUCCESS_URL,
