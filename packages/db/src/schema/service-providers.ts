@@ -12,3 +12,6 @@ export const serviceProviders = t.pgTable("service_providers", {
   createdAt: t.timestamp("created_at").defaultNow(),
   updatedAt: t.timestamp("updated_at").defaultNow(),
 });
+
+export type ServiceProvider = typeof serviceProviders.$inferSelect;
+export type NewServiceProvider = typeof serviceProviders.$inferInsert;

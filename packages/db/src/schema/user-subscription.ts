@@ -72,3 +72,6 @@ export const subscriptionPlansRelations = relations(subscriptionPlans, ({ one, m
   }),
   subscriptions: many(userSubscriptions),
 }));
+
+export type UserSubscription = typeof userSubscriptions.$inferSelect;
+export type NewUserSubscription = typeof userSubscriptions.$inferInsert;

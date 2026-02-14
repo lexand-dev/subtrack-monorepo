@@ -26,3 +26,6 @@ export const subscriptionPlans = t.pgTable(
     t.unique("unique_provider_id_plan_slug").on(table.providerId, table.slug),
   ],
 );
+
+export type SubscriptionPlan = typeof subscriptionPlans.$inferSelect;
+export type NewSubscriptionPlan = typeof subscriptionPlans.$inferInsert;
