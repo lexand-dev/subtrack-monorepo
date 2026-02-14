@@ -3,6 +3,8 @@ import { AuthModule } from '@thallesp/nestjs-better-auth';
 import { auth } from '@subtrack/auth';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
+import { ProvidersModule } from './providers/providers.module';
+import { AnalyticsModule } from './analytics/analytics.module';
 import appConfig from './config/app.config';
 
 @Module({
@@ -14,6 +16,8 @@ import appConfig from './config/app.config';
     }),
     AuthModule.forRoot({ auth }),
     UsersModule,
+    ProvidersModule,
+    AnalyticsModule,
   ],
   controllers: [],
   providers: [],
