@@ -26,7 +26,9 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
           password: value.password,
         },
         {
-          onSuccess: () => {
+          onSuccess: (ctx) => {
+            const authToken = ctx.response.headers.get("set-auth-token") // get the token from the response headers
+            localStorage.setItem("bearer_token", authToken!);
             router.push("/dashboard");
             toast.success("Sign in successful");
           },

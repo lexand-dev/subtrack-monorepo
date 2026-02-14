@@ -4,6 +4,8 @@ import * as schema from "@subtrack/db/schema/auth";
 import { env } from "@subtrack/env/server";
 import { polar, checkout, portal } from "@polar-sh/better-auth";
 import { betterAuth } from "better-auth";
+import { jwt } from "better-auth/plugins"
+import { bearer } from "better-auth/plugins";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
 import { polarClient } from "./lib/payments";
@@ -32,6 +34,8 @@ export const auth = betterAuth({
     },
   },
   plugins: [
+    jwt(),
+    bearer(),
     polar({
       client: polarClient,
       createCustomerOnSignUp: true,

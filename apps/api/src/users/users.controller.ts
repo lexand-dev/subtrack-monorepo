@@ -1,14 +1,13 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { AuthGuard } from '@thallesp/nestjs-better-auth';
+import { Session, type UserSession } from '@thallesp/nestjs-better-auth';
 
-@UseGuards(AuthGuard)
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Get('session')
-  getSession() {
-    return this.usersService.findAll();
+  @Get('me')
+  getProfile(@Session() session: UserSession) {
+    return { user: session.user };
   }
 }
