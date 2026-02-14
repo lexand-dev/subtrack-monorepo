@@ -1,11 +1,12 @@
-import { Module } from '@nestjs/common';
-import { AuthModule } from '@thallesp/nestjs-better-auth';
 import { auth } from '@subtrack/auth';
-import { UsersModule } from './users/users.module';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ProvidersModule } from './providers/providers.module';
-import { AnalyticsModule } from './analytics/analytics.module';
+import { AuthModule } from '@thallesp/nestjs-better-auth';
+
 import appConfig from './config/app.config';
+import { UsersModule } from './modules/users/users.module';
+import { ProvidersModule } from './modules/providers/providers.module';
+import { AnalyticsModule } from './modules/analytics/analytics.module';
 
 @Module({
   imports: [
