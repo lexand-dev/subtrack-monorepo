@@ -16,7 +16,7 @@ export const auth = betterAuth({
   }),
   trustedOrigins: [
     env.CORS_ORIGIN,
-    "mybettertapp://",
+    "subtrack://",
     ...(env.NODE_ENV === "development"
       ? ["exp://", "exp://**", "exp://192.168.*.*:*/**", "http://localhost:8081"]
       : []),
@@ -53,3 +53,5 @@ export const auth = betterAuth({
     expo(),
   ],
 });
+
+export type Session = typeof auth.$Infer.Session

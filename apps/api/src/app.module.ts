@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { ServiceSubscriptionsModule } from './service-subscriptions/service-subscriptions.module';
+import { AuthModule } from '@thallesp/nestjs-better-auth';
+import { auth } from '@subtrack/auth';
 
 @Module({
-  imports: [UsersModule, ServiceSubscriptionsModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [AuthModule.forRoot({ auth })],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
