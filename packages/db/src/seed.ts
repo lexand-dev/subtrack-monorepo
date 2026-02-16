@@ -13,23 +13,17 @@ async function seed() {
     // ------------------------------------------------------------------
     // 1. VERIFICACIÓN INICIAL
     // ------------------------------------------------------------------
-    const existingUsers = await db.select().from(schema.user).limit(1);
-    if (existingUsers.length > 0) {
-      console.log('⚠️  La base de datos ya tiene datos. Saltando seed...');
-      return;
-    }
+
 
     // ------------------------------------------------------------------
     // 2. CREAR USUARIO DE PRUEBA
     // ------------------------------------------------------------------
     console.log('👤 Creando usuario de prueba...');
 
-    const [testUser] = await db.insert(schema.user).values({
-      id: '00000000-0000-0000-0000-000000000001',
-      email: 'demo@subtrack.app',
-      name: 'Usuario Demo',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Felix',
-    }).returning();
+    const testUser = {
+      id: "0MYiI7WfeYYJFkbZfHcjkSMACme3cTTJ",
+      email: 'lexandfr@gmail.com',
+    }
 
     console.log(`✅ Usuario creado: ${testUser?.email}`);
 
@@ -213,7 +207,7 @@ async function seed() {
     console.log(`✅ ${userSubsData.length} Suscripciones de usuario creadas.`);
     console.log('🎉 SEED COMPLETADO EXITOSAMENTE! 🚀');
     console.log('------------------------------------------------');
-    console.log(`📧 Login Demo: ${testUser?.email}`);
+    console.log(`📧 Login Demo: ${testUser.id}`);
     console.log(`🔑 Password: password123`);
     console.log('------------------------------------------------');
 
