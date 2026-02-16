@@ -1,4 +1,7 @@
-export default function Layout({children}: {children: React.ReactNode}) {
+import { LogoIcon } from "@/components/logo-icon";
+import Link from "next/link";
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main>
       <div className="fixed left-0 top-o -z-10 h-full w-full">
@@ -10,7 +13,8 @@ export default function Layout({children}: {children: React.ReactNode}) {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center mx-auto h-screen w-full max-w-7xl px-6 md:px8 lg:px-12">
+
+      <div className="flex flex-col items-center justify-evenly mx-auto h-screen w-full">
         {children}
       </div>
     </main>
