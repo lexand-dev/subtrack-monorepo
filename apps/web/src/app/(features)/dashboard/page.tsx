@@ -3,8 +3,6 @@ import { redirect } from "next/navigation";
 
 import { authClient } from "@/lib/auth-client";
 
-import Dashboard from "./dashboard";
-
 export default async function DashboardPage() {
   const session = await authClient.getSession({
     fetchOptions: {
@@ -14,7 +12,7 @@ export default async function DashboardPage() {
   });
 
   if (!session?.user) {
-    redirect("/login");
+    redirect("/sign-in");
   }
 
   const { data: customerState } = await authClient.customer.state({
@@ -24,10 +22,8 @@ export default async function DashboardPage() {
   });
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome {session.user.name}</p>
-      <Dashboard session={session} customerState={customerState} />
-    </div>
+    <section className="flex h-screen items-center justify-center">
+      // TODO: show sidebar with customer state
+    </section>
   );
 }
