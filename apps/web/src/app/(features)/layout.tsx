@@ -1,7 +1,9 @@
+import { DashboardLayout } from "@/components/dashboard/dashboard-layout";
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="h-screen w-full">
+    <DashboardLayout>
       {children}
-    </main>
+    </DashboardLayout>
   );
 }

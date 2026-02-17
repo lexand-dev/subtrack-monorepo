@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 import { authClient } from "@/lib/auth-client";
 
-export default async function DashboardPage() {
+export default async function ServicesPage() {
   const session = await authClient.getSession({
     fetchOptions: {
       headers: await headers(),
