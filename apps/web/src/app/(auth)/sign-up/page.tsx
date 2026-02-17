@@ -1,8 +1,8 @@
-import SignUpForm from "@/components/sign-up-form";
+import SignUpForm from "@/modules/auth/ui/components/sign-up-form";
 
 export default function SigInPage() {
 
   return (
-    <SignUpForm/>
+    <SignUpForm />
   )
 }
