@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import { ModeToggle } from "./mode-toggle";
-import UserMenu from "./user-menu";
+import UserMenu from "../modules/auth/ui/components/user-menu";
 import { LogoIcon } from "./logo-icon";
 
 export default function Header() {

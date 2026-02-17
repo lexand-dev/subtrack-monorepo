@@ -1,9 +1,9 @@
-import { DashboardLayout } from "@/components/dashboard/dashboard-layout";
+import { HomeLayout } from "@/modules/home/ui/layouts/home-layout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <DashboardLayout>
+    <HomeLayout>
       {children}
-    </DashboardLayout>
+    </HomeLayout>
   );
 }

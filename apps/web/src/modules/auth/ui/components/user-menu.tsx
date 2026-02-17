@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -12,8 +14,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/lib/auth-client";
 
-import { Button } from "./ui/button";
-import { Skeleton } from "./ui/skeleton";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+
 
 export default function UserMenu() {
   const router = useRouter();

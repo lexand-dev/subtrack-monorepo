@@ -14,6 +14,7 @@ export default function Dashboard({
 
   return (
     <>
+      <p>{session?.user.name}</p>
       <p>Plan: {hasProSubscription ? "Pro" : "Free"}</p>
       {hasProSubscription ? (
         <Button onClick={async () => await authClient.customer.portal()}>
